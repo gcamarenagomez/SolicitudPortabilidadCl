@@ -1,6 +1,15 @@
 <aura:component implements="lightning:availableForFlowScreens">
     <aura:attribute name="bancoReceptor" type="String" />
     <aura:attribute name="today" type="Date" />
+    <aura:attribute name="firstName" type="String" />
+    <aura:attribute name="lastName" type="String" />
+    <aura:attribute name="rut" type="String" />
+    <aura:attribute name="email" type="String" />
+    <aura:attribute name="phone" type="String" />
+    <aura:attribute name="sourceBank" type="String" />
+    <aura:attribute name="bankWebsite" type="String" />
+    <aura:attribute name="trabajadorIndependiente" type="Boolean" />
+    <aura:attribute name="fields" type="List" default="['firstName', 'lastName']" />
     <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
     <div class="c-container">
         <lightning:layout multipleRows="true">
@@ -17,7 +26,35 @@
             </lightning:layoutItem>
             <lightning:layoutItem padding="around-small" size="6">
                 <lightning:input type="text" label="Raz&oacute;n Social del Receptor" readonly="true" value="{!v.bancoReceptor}" />
-            </lightning:layoutItem>        
+            </lightning:layoutItem>    
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:input type="text" label="Nombre" placeholder="Claudio Patricio" value="{!v.firstName}" />
+                <!--lightning:inputName label="Nombre Completo" firstName="{!v.firstName}" lastName="{!v.lastName}" fieldsToDisplay="{!v.fields}"/-->
+            </lightning:layoutItem>    
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:input type="text" label="Apellidos" placeholder="Torres Lagos" value="{!v.lastName}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:input type="text" label="RUT" placeholder="12.345.678-5" value="{!v.rut}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:input type="email" label="Correo Electr&oacute;nico" placeholder="test@ejemplo.com" value="{!v.email}"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:input type="phone" label="N&uacute;mero de tel&eacute;fono" placeholder="9194-4839" value="{!v.phone}"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:input type="text" label="Raz&oacute;n Social del proveedor inicial" value="{!v.sourceBank}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:input type="url" label="Sitio web proveedor inicial" value="{!v.bankWebsite}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:input type="checkbox" label="&iquest;Eres trabajador independiente?" value="{!v.trabajadorIndependiente}"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:input type="number" label="Ingresa tu renta l&iacute;quida" placeholder="1.200.000" formatter="currency" step="0.01"/>
+            </lightning:layoutItem>
         </lightning:layout>
     </div>
 

@@ -1,3 +1,11 @@
 <design:component >
     <design:attribute name="bancoReceptor" label="Razón Social del Banco Receptor" description="Razón Social del Banco" />
+    <design:attribute name="firstName" label="Nombre del cliente" description="Nombre de pila del cliente" />
+    <design:attribute name="lastName" label="Apellidos" description="Apellidos" />
+    <design:attribute name="rut" label="RUT" description="RUT del cliente (Chile)" />
+    <design:attribute name="email" label="Correo Electr&oacute;nico" description="Correo electr&oacute;nico del cliente" />
+    <design:attribute name="phone" label="Tel&eacute;fono" description="Tel&eacute;fono del cliente" />
+    <design:attribute name="sourceBank" label="Proveedor Inicial" description="Banco actual del cliente" />
+    <design:attribute name="bankWebsite" label="Sitio Web del Proveedor Inicial" description="Sitio Web del Proveedor Inicial" />
+    <design:attribute name="trabajadorIndependiente" label="Es Trabajador Independiente?" description="Indica si el cliente es trabajador independiente" />
 </design:component>
