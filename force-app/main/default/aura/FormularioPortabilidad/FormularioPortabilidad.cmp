@@ -1,0 +1,24 @@
+<aura:component implements="lightning:availableForFlowScreens">
+    <aura:attribute name="bancoReceptor" type="String" />
+    <aura:attribute name="today" type="Date" />
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem padding="around-small" size="12">
+                <h1>
+                    <strong>Completa el formulario de portabilidad</strong>
+                </h1>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <p>Es necesario que completes la informac&oacute;n solicitada en este paso para que el proceso de portabilidad se lo m&aacute;s expedito posible.</p>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:input type="date" label="Fecha de Solicitud" readonly="true" value="{!v.today}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:input type="text" label="Raz&oacute;n Social del Receptor" readonly="true" value="{!v.bancoReceptor}" />
+            </lightning:layoutItem>        
+        </lightning:layout>
+    </div>
+
+</aura:component>	

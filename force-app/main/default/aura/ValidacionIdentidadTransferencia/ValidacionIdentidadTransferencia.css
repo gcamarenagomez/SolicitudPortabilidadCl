@@ -1,0 +1,15 @@
+.THIS {
+    background-color: white;
+}
+
+.THIS .warning{
+    background-color: #AAAAAA;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+}
+
+.THIS .transferButton{
+    border-radius: 15px;
+}
+

@@ -1,0 +1,57 @@
+<aura:component implements="lightning:availableForFlowScreens" controller="PortabilidadController">
+    <aura:attribute name="bancoOrigen" type="String" />
+    <aura:attribute name="numeroCta" type="String" />
+    <aura:attribute name="objInfo" type="lead" default="{sobjectType : 'Lead'}" />
+    <aura:attribute name="bancos" type="String[]" />
+    <aura:attribute name="statusValidacion" type="String" default="sinValidar" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem padding="around-small" size="12">
+                <h1>Validaci&oacute;n de identidad mediante transferencia</h1>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <p>Ahora necesitamos validar tu identidad mediante una transferencia electr&oacute;nica a tu banco de origen.</p>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <div class="warning">
+                    <p>
+                        <lightning:icon iconName="utility:warning" alternativeText="Advertencia" title="Advertencia" size="x-small" variant="inverse"/>
+                        No se permite transferencias a <strong>Cuenta Rut</strong> o <strong>Cuenta Prepago</strong>
+                    </p>
+                </div>
+            </lightning:layoutItem>            
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:select name="bancoOrigen" label="Escoge el banco donde realizaremos la transferencia" value="{!v.bancoOrigen}">
+                    <option value="">Seleccionar un banco de esta lista</option>
+                    <aura:iteration items="{!v.bancos}" var="banco">
+                        <option value="{!banco}" text="{!banco}"></option>
+                    </aura:iteration>
+                </lightning:select>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:input type="text" label="Ingresa el n&uacute;mero de tu Cta. Cte." placeholder="000-000-444-4443" value="{!v.numeroCta}"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:button label="TRANSFERIR FONDOS" class="transferButton" iconName="utility:money" value="TRANSFERIR FONDOS" onclick="{!c.simulaValidacion}"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <aura:renderIf isTrue="{!v.statusValidacion == 'Validando'}">
+                    <lightning:spinner alternativeText="Validando" />
+                    <aura:set attribute="else"></aura:set>
+                </aura:renderIf>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <aura:renderIf isTrue="{!v.statusValidacion == 'Validado'}">
+                    <p>
+                        <lightning:icon iconName="action:approval" alternativeText="Advertencia" title="Advertencia" size="medium" variant="success"/>
+                        ¡LA TRANSFERENCIA SE REALIZÓ EXITOSAMENTE!
+                    </p>
+                    <aura:set attribute="else"></aura:set>
+                </aura:renderIf>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>	

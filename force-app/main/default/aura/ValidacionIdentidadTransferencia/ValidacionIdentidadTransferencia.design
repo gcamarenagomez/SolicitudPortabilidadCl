@@ -1,0 +1,5 @@
+<design:component >
+    <design:attribute name="bancoOrigen" label="Banco Origen" description="Banco al que se realizará la transferencia para validar la identidad"/>    
+    <design:attribute name="numeroCta" label="Número de Cuenta" description="Número de Cuenta Corriente para Validación por Transferencia"/>    
+    
+</design:component>
