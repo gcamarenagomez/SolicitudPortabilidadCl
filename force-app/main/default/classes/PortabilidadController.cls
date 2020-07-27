@@ -1,18 +1,29 @@
 public with sharing class PortabilidadController {
 
     @AuraEnabled
-    public static List<String> getSelectOptions(sObject objObject, string fld){
-        List<String> allOpts = new List<String>();
-        Schema.sObjectType objType = objObject.getSObjectType();
-        Schema.DescribeSObjectResult objDescribe = objType.getDescribe();
-        
-        map<String, Schema.SObjectField> fieldMap = objDescribe.fields.getMap();
-
-        List<Schema.PicklistEntry> values = fieldMap.get(fld).getDescribe().getPickListValues();
-        for(Schema.PicklistEntry a : values){
-            allOpts.add(a.getValue());
+    public static List<String> getPicklistValues(String objName, string fldName, Boolean nullRequired){
+        List<String> optionList = new List<String>();
+        Map<String, Schema.SObjectType> globalDescribe = Schema.getGlobalDescribe();
+        Map<String, Schema.SObjectField> fieldMap = globalDescribe.get(objName.toLowerCase()).getDescribe().fields.getMap();
+        List<Schema.PicklistEntry> picklistValues = fieldMap.get(fldName).getDescribe().getPicklistValues();
+        if(nullRequired == true){
+            optionList.add('--Ninguno--');
         }
-        return allOpts;
+        for(Schema.PicklistEntry picklistValue : picklistValues){
+            optionList.add(picklistValue.getValue());
+        }
+        return optionList;
+    }
+
+    @AuraEnabled
+    public static void saveProductoPortabilidad(String leadId, String acctNo, String prodType, Boolean blockProd){
+        Producto_Portabilidad__c producto = new Producto_Portabilidad__c();
+        producto.Prospecto__c = leadId;
+        producto.Name = prodType + ' No. ' + acctNo;
+        producto.Numero_de_cuenta__c = acctNo;
+        producto.Producto__c = prodType;
+        producto.Bloquear__c = blockProd;
+        insert producto;
     }
 
 

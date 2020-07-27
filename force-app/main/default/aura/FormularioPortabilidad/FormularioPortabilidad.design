@@ -8,4 +8,5 @@
     <design:attribute name="sourceBank" label="Proveedor Inicial" description="Banco actual del cliente" />
     <design:attribute name="bankWebsite" label="Sitio Web del Proveedor Inicial" description="Sitio Web del Proveedor Inicial" />
     <design:attribute name="trabajadorIndependiente" label="Es Trabajador Independiente?" description="Indica si el cliente es trabajador independiente" />
+    <design:attribute name="rentaLiquida" label="Renta L&iacute;quida" description="Renta l&iacute;quida del cliente" />
 </design:component>

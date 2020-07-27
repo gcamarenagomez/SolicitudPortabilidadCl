@@ -1,0 +1,36 @@
+<aura:component controller="PortabilidadController">
+    <aura:attribute name="tipoProducto" type="String" />
+    <aura:attribute name="numCta" type="String" />
+    <aura:attribute name="bloquear" type="Boolean" default="false"/>
+    <aura:attribute name="producto" type="String" />
+    <aura:attribute name="leadId" type="String" />
+    <aura:attribute name="insertadoExitosamente" type="Boolean" default="false"/>
+    <div class="c-container">
+        <lightning:layout>
+            <aura:renderIf isTrue="{!v.tipoProducto == 'Otro'}">
+                <lightning:layoutItem padding="around-small" size="3">
+                    <lightning:input type="text" placeholder="Ingresar nombre del producto financiero" value="{!v.producto}" readonly="{!v.insertadoExitosamente}"/>
+                </lightning:layoutItem>
+                <aura:set attribute="else">
+
+                </aura:set>
+            </aura:renderIf>
+            <lightning:layoutItem padding="around-small" size="6">
+                <lightning:input type="text" placeholder="Ingresar nº de cta. cte." value="{!v.numCta}" readonly="{!v.insertadoExitosamente}"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="1">
+                <lightning:input type="checkbox" label="Bloquear?" checked="{!v.bloquear}" disabled="{!v.insertadoExitosamente}"/>
+            </lightning:layoutItem>
+            <aura:renderIf isTrue="{!v.insertadoExitosamente}">
+                <lightning:layoutItem padding="around-small" size="1">
+                    <lightning:icon iconName="action:approval" alternativeText="Exito" title="Exito" />
+                </lightning:layoutItem>
+                <aura:set attribute="else">
+                    <lightning:layoutItem padding="around-small" size="1">
+                        <lightning:buttonIcon iconName="utility:check" alternativeText="agregar" variant="brand" onclick="{!c.guardarProducto}"/>
+                    </lightning:layoutItem>
+                </aura:set>
+            </aura:renderIf>
+        </lightning:layout>
+    </div>
+</aura:component>	

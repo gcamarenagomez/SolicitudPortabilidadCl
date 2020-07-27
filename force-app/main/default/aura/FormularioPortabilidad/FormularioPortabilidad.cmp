@@ -8,7 +8,8 @@
     <aura:attribute name="phone" type="String" />
     <aura:attribute name="sourceBank" type="String" />
     <aura:attribute name="bankWebsite" type="String" />
-    <aura:attribute name="trabajadorIndependiente" type="Boolean" />
+    <aura:attribute name="trabajadorIndependiente" type="Boolean" default="false"/>
+    <aura:attribute name="rentaLiquida" type="Decimal" />
     <aura:attribute name="fields" type="List" default="['firstName', 'lastName']" />
     <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
     <div class="c-container">
@@ -50,10 +51,10 @@
                 <lightning:input type="url" label="Sitio web proveedor inicial" value="{!v.bankWebsite}" />
             </lightning:layoutItem>
             <lightning:layoutItem padding="around-small" size="12">
-                <lightning:input type="checkbox" label="&iquest;Eres trabajador independiente?" value="{!v.trabajadorIndependiente}"/>
+                <lightning:input type="checkbox" label="&iquest;Eres trabajador independiente?" checked="{!v.trabajadorIndependiente}"/>
             </lightning:layoutItem>
             <lightning:layoutItem padding="around-small" size="12">
-                <lightning:input type="number" label="Ingresa tu renta l&iacute;quida" placeholder="1.200.000" formatter="currency" step="0.01"/>
+                <lightning:input type="number" label="Ingresa tu renta l&iacute;quida" placeholder="1.200.000" formatter="currency" step="0.01" value="{!v.rentaLiquida}"/>
             </lightning:layoutItem>
         </lightning:layout>
     </div>

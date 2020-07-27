@@ -1,7 +1,8 @@
 <aura:component implements="lightning:availableForFlowScreens" controller="PortabilidadController">
     <aura:attribute name="bancoOrigen" type="String" />
     <aura:attribute name="numeroCta" type="String" />
-    <aura:attribute name="objInfo" type="lead" default="{sobjectType : 'Lead'}" />
+    <aura:attribute name="objectName" type="String" default="Lead" />
+    <aura:attribute name="bancosPicklist" type="String" default="Banco_Origen__c"/>
     <aura:attribute name="bancos" type="String[]" />
     <aura:attribute name="statusValidacion" type="String" default="sinValidar" />
 

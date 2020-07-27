@@ -1,0 +1,23 @@
+<aura:component implements="lightning:availableForFlowScreens" controller="PortabilidadController">
+    <aura:attribute name="leadId" type="String" />
+    <aura:attribute name="productos" type="String[]" />
+    <aura:attribute name="objectName" type="String" default="Producto_Portabilidad__c"/>
+    <aura:attribute name="listaProductos" type="String" default="Producto__c"/>
+    <aura:attribute name="seccionActiva" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <lightning:accordion aura:id="accordionProductos" activeSectionName="{!v.seccionActiva}">
+        <aura:iteration items="{!v.productos}" var="producto">
+            <lightning:accordionSection label="{!producto}" name="{!producto}">                
+                <!--aura:set attribute="actions">
+                    <lightning:buttonIcon iconName="utility:add" alternativeText="Agregar" variant="border-filled" name="{!producto}" onclick="{!c.agregarProducto}"/>
+                </aura:set-->
+                <aura:set attribute="body">
+                    <div aura:id="{!producto}">
+                        <c:ProductoPortabilidad tipoProducto="{!producto}" leadId="{!v.leadId}" />
+                        <c:ProductoPortabilidad tipoProducto="{!producto}" leadId="{!v.leadId}" />
+                    </div> 
+                </aura:set>                               
+            </lightning:accordionSection>
+        </aura:iteration>
+    </lightning:accordion>
+</aura:component>	

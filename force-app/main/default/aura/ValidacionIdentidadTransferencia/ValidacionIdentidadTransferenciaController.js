@@ -1,6 +1,6 @@
 ({
     doInit : function(component, event, helper) {
-        helper.fetchPicklistVal(component, 'Banco_Origen__c');
+        helper.fetchPicklistVal(component);
     },
 
     simulaValidacion : function(component, event, helper){

@@ -1,0 +1,6 @@
+<design:component >
+    <design:attribute name="leadId" label="Lead Id" description="Id del prospecto creado" />
+    <design:attribute name="objectName" label="Nombre del Objeto" description="Nombre del objeto donde está la lista de productos de Portabilidad. i.e. Productos_Portabilidad__c" />
+    <design:attribute name="listaProductos" label="Campo Lista de Productos" description="Lista de selección donde se encuentra la lista de productos de portabilidad" />
+    <design:attribute name="seccionActiva" label="Nombre de la Seccion Activa" description="Seccion del acordeon de productos que estará activa" />
+</design:component>

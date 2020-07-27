@@ -1,4 +1,4 @@
 <design:component >
-    <design:attribute name="stages" label="Etapa" description="¿Qué etapas están activas?" />
+    <design:attribute name="stages" label="Lista de Etapas" description="¿Qué etapas están activas?" />
     <design:attribute name="currentStage" label="Etapa Actual" description="¿Cuál es la etapa actual?" />
 </design:component>
