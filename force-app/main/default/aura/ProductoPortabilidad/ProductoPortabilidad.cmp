@@ -1,4 +1,4 @@
-<aura:component controller="PortabilidadController">
+<aura:component controller="PortabilidadController" access="global">
     <aura:attribute name="tipoProducto" type="String" />
     <aura:attribute name="numCta" type="String" />
     <aura:attribute name="bloquear" type="Boolean" default="false"/>

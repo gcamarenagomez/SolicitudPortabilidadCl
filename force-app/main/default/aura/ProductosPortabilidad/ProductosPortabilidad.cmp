@@ -1,4 +1,4 @@
-<aura:component implements="lightning:availableForFlowScreens" controller="PortabilidadController">
+<aura:component implements="lightning:availableForFlowScreens" controller="PortabilidadController" access="global">
     <aura:attribute name="leadId" type="String" />
     <aura:attribute name="productos" type="String[]" />
     <aura:attribute name="objectName" type="String" default="Producto_Portabilidad__c"/>

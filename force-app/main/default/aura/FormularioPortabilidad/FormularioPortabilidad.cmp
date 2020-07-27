@@ -1,4 +1,4 @@
-<aura:component implements="lightning:availableForFlowScreens">
+<aura:component implements="lightning:availableForFlowScreens" access="global">
     <aura:attribute name="bancoReceptor" type="String" />
     <aura:attribute name="today" type="Date" />
     <aura:attribute name="firstName" type="String" />
